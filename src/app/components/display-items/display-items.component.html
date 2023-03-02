@@ -1,0 +1,71 @@
+<h1 style="text-align: center;">display-items !</h1>
+
+<button mat-raised-button type="submit" color="primary"
+            (click)="loginService.navigate(loginService.Route.User_Home)">
+            User Main Page
+        </button>
+        <div>
+
+
+          
+<div style="width: 200pc; height: auto; border: 3px solid black;font-size: 24px;">
+<div *ngFor="let item of items">
+  <input type="checkbox" name="{{item.id}}" [value]="item.id" (change)="getItemById($event,item.id)"
+  >{{item.name}}- {{item.quantity}} - {{item.weight}} - {{item.calories}}
+</div>
+<!-- <div class="container">
+        <ng-container *ngIf="items.length != 0">
+<div class="table">
+    <table class="table table-responsive">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Item Name</th>
+          <th scope="col">picture</th>
+          <th scope="col">weight</th>
+          <th scope="col">calories</th>
+          <th scope="col">quantity</th>
+          <th scope="col">Avaibility</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+        <tbody>
+        <tr *ngFor="let item of items; let i = index" >
+          <td>{{ i + 1 }}</td>
+          <td>{{ item.name }}</td>
+          <td> <img height="100" width="100" src="{{ item.url }}"></td>
+          <td>{{ item.weight }}lb</td>
+          <td>{{ item.calories}}cal</td>
+          <td>{{ item.quantity}}</td>
+          <td>{{ item.availibity}}</td>
+           <td>  <button
+              type="button"
+              class="btn btn-primary"
+              
+            >
+              <mat-icon (click)=" itemService.addItemToPantry( itemName,
+    url,
+    weight,
+    calories,
+    quantity,
+    avaibility)">add Item to Pantry</mat-icon>
+            </button> 
+          </td>
+        </tr>
+        <p>Total Calories: {{getTotalCaloriesItems()}}</p>                    
+        <p>Total weight: {{getTotalWeightItems()}}</p>                    
+
+      </tbody>
+    </table>
+</div>
+        </ng-container>
+        <ng-container *ngIf="items.length == 0">
+            <div class="container">
+                <h3>There are no Items</h3>
+            </div>
+        </ng-container>
+    </div> -->
+
+   
+
+        </div>

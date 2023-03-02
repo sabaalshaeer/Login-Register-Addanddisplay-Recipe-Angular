@@ -1,0 +1,52 @@
+<p>pantry-item works!</p>
+
+<button mat-raised-button type="submit" color="primary"
+            (click)="loginService.navigate(loginService.Route.User_Home)">
+            User Main Page
+        </button>
+<!-- <button mat-raised-button type="submit" color="primary"
+            (click)="loginService.getItemFromPantry(userId)">
+            get pantry item
+        </button> -->
+<div class="container">
+        <ng-container *ngIf="pantries.length != 0">
+<div class="table">
+    <table class="table table-responsive">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Item Name</th>
+          <th scope="col">picture</th>
+          <th scope="col">weight</th>
+          <th scope="col">calories</th>
+          <th scope="col">quantity</th>
+          <th scope="col">Avaibility</th>
+        </tr>
+      </thead>
+        <tbody>
+        <tr *ngFor="let pantryItem of pantries; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ pantryItem.itemName }}</td>
+          <td> <img height="100" width="100" src="{{ pantryItem.pantryUrl }}"></td>
+          <td>{{ pantryItem.itemWeight }}lb</td>
+          <td>{{ pantryItem.itemCalories}}cal</td>
+          <td>{{ pantryItem.itemQuantity}}</td>
+          <td>{{ pantryItem.itemAvaibility}}</td>
+         
+        </tr>
+         <p>Total Calories: {{getTotalCaloriesinPantry()}}</p>                    
+        <p>Total weight: {{getTotalWeightinPantry()}}</p>      
+      </tbody>
+    </table>
+</div>
+        </ng-container>
+        <ng-container *ngIf="pantries.length == 0">
+            <div class="container">
+                <h3>There are no Items in Your Pantry</h3>
+                <img width="200px" height="200px"  src="https://thumbs.dreamstime.com/z/flat-isolated-vector-eps-illustration-icon-minimal-design-long-shadow-product-not-available-icon-117825338.jpg" alt="">
+            </div>
+             <div style="margin-left: 100px; text-align: center;" >##################################################################################
+          </div></ng-container>
+    </div> 
+  
+  

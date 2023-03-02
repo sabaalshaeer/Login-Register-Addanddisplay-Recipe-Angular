@@ -1,0 +1,91 @@
+<p>insert-ingredient works!</p>
+
+<button mat-raised-button type="submit" color="primary"
+            (click)="loginService.navigate(loginService.Route.User_Home)">
+            User Main Page
+        </button>
+        
+<form [formGroup]="addNewRecipeForm" (ngSubmit)="recipeSave()">
+    <table>
+        
+  <div class="card">
+    <div class="card-header">
+      <label>New Recipe</label>
+    </div>
+    <div class="card-body">
+        
+      <h3>New Recipe Info</h3>
+      <tr>
+      <div class="form-group">
+        <label for="name">Name Of the Recipe :</label>
+        <input formControlName="name" type="text" class="form-control" id="name">
+      </div>
+      </tr>
+      <br>
+      <tr>
+      <div class="form-group">
+        <label for="url">Image :</label>
+        <input formControlName="url" type="text" class="form-control" id="url">
+      </div>
+      </tr>
+    </div>
+    <hr>
+    <tr>
+        <div class="form-group" formArrayName="ingredient">
+            <label><h3>Recipe Ingredients :</h3></label>
+              <div>
+        <button mat-raised-button type="button" color="primary" (click)="addNewIngredients()">Add More Ingredient</button>
+      </div >
+      <br>
+<!-- loop that array ingredient in this form find  controls by the name ingredient get the control which is inside this array
+ since it is group I assign it to formgroup =  i-->
+            <div *ngFor="let ingred of addNewRecipeForm.controls.ingredient['controls'];
+            let i= index" [formGroupName]="i">
+            <div>
+                 <label for="name">Name of Ingredient :</label>
+                 <input type="text" formControlName="name" >
+            </div>
+            <br>
+            <div>
+                <label for="weight">Weight of Ingredient:</label>
+                <input type="number" formControlName="weight" >
+            </div>
+            <br>
+            <div>
+                <label for="calories">Calories of Ingredient:</label>
+                <input type="number" formControlName="calories" >
+            </div>
+            <br>
+            </div>
+        </div>
+    </tr>
+    <hr>
+
+    <tr>
+        <div class="form-group" formArrayName="step">
+            <label><h3>Recipe step :</h3></label>
+              <div>
+        <button mat-raised-button type="button" color="primary" (click)="AddnewSteps()">Add More Steps</button>
+      </div >
+      <br>
+<!-- loop that array ingredient in this form find  controls by the name ingredient get the control which is inside this array
+ since it is group I assign it to formgroup =  i-->
+            <div *ngFor="let ste of addNewRecipeForm.controls.step['controls'];
+            let i= index" [formGroupName]="i">
+            <div>
+                 <label for="comment">Step :</label>
+                 <input type="text" formControlName="comment" >
+            </div>
+            <br>
+   </div>
+        </div>
+    </tr>
+    <hr>
+    <br>
+
+        </div>
+         </table>
+       
+    <button type="submit" mat-raised-button color="primary" >Submit</button>
+</form>
+ 

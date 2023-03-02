@@ -1,0 +1,74 @@
+
+<div class="form ">
+  <!-- Reactive Form is a directive : Creates a top-level FormGroup instance and binds 
+        it to a form to track aggregate form value and validation-->
+  <!-- when we assign ngForm to the variable this will get access to the form in form of Object-->
+  <!-- <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">  -->
+  <mat-toolbar color="primary">Register Page</mat-toolbar>
+  <mat-card>
+    <mat-form-field>
+      <mat-label>Full Name</mat-label>
+      <input matInput placeholder="fullName" [(ngModel)]="fullName" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>User Name</mat-label>
+      <input matInput placeholder="username" [(ngModel)]="username" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput type="password" placeholder="password" [(ngModel)]="password" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="email" [(ngModel)]="email" required>
+    </mat-form-field>
+
+
+    <button mat-raised-button type="submit" color="primary" (click)="loginService.registerNewUser(
+    fullName,
+    password,
+    username,
+    email)">Register New User</button>
+
+  </mat-card>
+  <!-- </form> -->
+</div>
+
+
+<!--<div class="form " [formGroup]="registerForm"
+        (ngSubmit)="onSubmit()">
+   Reactive Form is a directive : Creates a top-level FormGroup instance and binds 
+        it to a form to track aggregate form value and validation-->
+  <!-- when we assign ngForm to the variable this will get access to the form in form of Object-->
+  <!-- <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">  -->
+  <!-- <mat-toolbar color="primary">Register Page</mat-toolbar>
+  <mat-card>
+    <mat-form-field>
+      <mat-label>Full Name</mat-label>
+      <input matInput placeholder="fullName" id="fullName" formControlName="fullName" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>User Name</mat-label>
+      <input matInput placeholder="username" formControlName="username" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput type="password" placeholder="password" formControlName="password" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="email" formControlName="email" required>
+    </mat-form-field>
+
+
+    <button mat-raised-button type="submit" color="primary" [disabled]="!registerForm.valid">Register New User</button>
+
+  </mat-card>
+   </form> 
+ </div>-->

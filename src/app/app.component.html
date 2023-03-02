@@ -1,0 +1,38 @@
+<div>
+    <mat-toolbar color="primary">
+        <span>Main Page </span>
+        <button mat-raised-button type="submit" color="primary"
+            (click)="loginService.navigate(loginService.Route.Login_Home)">
+            Log In
+        </button>
+         <button mat-raised-button type="submit" color="primary"
+            (click)="loginService.navigate(loginService.Route.Items)">
+            Items Page
+        </button>
+    </mat-toolbar>
+</div>
+
+<div class="main-page">
+    <ng-container [ngSwitch]="loginService.currentRoute">
+  <app-login *ngSwitchCase="loginService.Route.Login_Home"></app-login>
+  <app-register *ngSwitchCase="loginService.Route.Register"></app-register>
+  <app-user-home *ngSwitchCase="loginService.Route.User_Home"></app-user-home>
+  <app-display-recipe *ngSwitchCase="loginService.Route.Display_Recipe"></app-display-recipe>
+  <app-insert-recipe *ngSwitchCase="loginService.Route.Insert_Recipe"></app-insert-recipe>
+  <app-insert-ingredient *ngSwitchCase="loginService.Route. Insert_Ingredient"></app-insert-ingredient>
+  <app-pantry-item *ngSwitchCase="loginService.Route.PantryItem"></app-pantry-item>
+  <app-display-items *ngSwitchCase="loginService.Route.DisplayItems"></app-display-items>
+  <app-items *ngSwitchCase="loginService.Route.Items"></app-items>
+
+
+</ng-container>
+
+<!-- <app-insert-recipe></app-insert-recipe> -->
+<!-- <app-insert-ingredient></app-insert-ingredient> -->
+<!-- <app-items></app-items> -->
+<!-- <app-display-items></app-display-items> -->
+<!-- <app-pantry-item></app-pantry-item> -->
+<!-- <app-display-recipe></app-display-recipe> -->
+</div>
+
+

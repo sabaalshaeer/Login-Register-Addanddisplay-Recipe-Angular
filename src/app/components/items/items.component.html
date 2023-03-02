@@ -1,0 +1,78 @@
+
+<div>
+    <h2 style="margin-left: 400px;">List of Items</h2>
+
+    <!-- <button (click)="getItemList()"></button>  -->
+
+    <div class="container">
+        <table>
+        <ng-container *ngIf="items.length != 0">
+<div class="table">
+<mat-card *ngFor="let item of items; let i = index">
+                <mat-card-header>
+                    <mat-card-title>{{ item.name }}</mat-card-title>
+                    <mat-card-subtitle><img height="100" width="100" src="{{ item.url }}"></mat-card-subtitle>
+                    <mat-card-subtitle>weight:{{ item.weight }}lb</mat-card-subtitle>
+                    <mat-card-subtitle>calories:{{ item.calories}}cal</mat-card-subtitle>
+                    <mat-card-subtitle>quantity:{{ item.quantity}}</mat-card-subtitle>
+                    
+                </mat-card-header>
+                <mat-card-actions>
+                    <button mat-button>
+                        <mat-icon>Add Item To Pantry</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+</div>
+            
+
+        </ng-container>
+        <ng-container *ngIf="items.length == 0">
+            <div class="container">
+                <h3>There are no Items</h3>
+            </div>
+        </ng-container>
+        </table>
+    </div>
+
+    <div style="margin-left: 100px;">##################################################################################
+    </div>
+</div>
+
+<form #userForm="ngForm">
+    <!-- userForm=name of templet reference avariable
+    ngForm = directive that been assigned
+    used to create instance of a group-->
+    <div class="button">
+        <button mat-raised-button type="submit" color="primary" (click)="itemService.createNewItem(
+    name,
+    url,
+    weight,
+    calories,
+    quantity,
+    availibility
+  )">Add New Item</button>
+    </div>
+    <section class="addAccount">
+        <mat-form-field>
+            <mat-label class="itemName">Name of the Item</mat-label>
+            <input matInput required name="name" [(ngModel)]="name" placeholder="name of item">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label class="itemUrl">Image</mat-label>
+            <input matInput name="url" [(ngModel)]="url" placeholder="url">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label class="itemWeight">Item Weight</mat-label>
+            <input matInput name="weight" required [(ngModel)]="weight" placeholder="weight">
+        </mat-form-field>
+         <mat-form-field>
+            <mat-label class="itemQuantity">Item Quantity</mat-label>
+            <input matInput name="quantity" required [(ngModel)]="quantity" placeholder="quantity">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label class="itemCalories">calories</mat-label>
+            <input matInput name="calories" required [(ngModel)]="calories" placeholder="calories">
+        </mat-form-field>
+    </section>>
+</form>

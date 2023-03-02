@@ -1,0 +1,30 @@
+
+<div class="form-container ">
+    <mat-toolbar color="primary">Login Page</mat-toolbar>
+    <mat-card >
+
+
+  <mat-form-field >
+    <mat-label>User Name</mat-label>
+    <input matInput placeholder="username" [(ngModel)]="username">
+    <!-- <mat-error *ngIf="username?.errors?.['username']">Please enter a Username</mat-error> -->
+  </mat-form-field>
+
+
+  <mat-form-field >
+    <mat-label>Password</mat-label>
+    <input matInput type="password" placeholder="password" [(ngModel)]="password">
+    <!-- <mat-error *ngIf="username?.errors?.['password']">Please enter a Password</mat-error> -->
+  </mat-form-field>
+
+<button mat-raised-button type="submit" color="primary" (click)="loginService.tryLogin(username, password)">Login</button>
+
+<p>
+  Don't have an account?
+  <button mat-raised-button color="primary" (click)="loginService.navigate(loginService.Route.Register)">Sign Up!</button>
+</p>
+</mat-card>
+</div>
+  <!-- <button type="submit" class="Login" (click)="Http.tryLogin(name, username, password)">Login</button>
+  <button type="submit" class="Login" (click)="Http.startRegister()">New Account</button> -->
+

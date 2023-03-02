@@ -1,0 +1,26 @@
+<mat-toolbar>
+    <span>Welcome, {{getUsername()}} </span>
+    <button mat-button (click)="loginService.logout()">
+        <mat-icon>logout</mat-icon>
+        Logout
+    </button>
+</mat-toolbar>
+<div class="button" style="display: inline-block;">
+    <button mat-raised-button type="submit" color="primary"
+    (click)="loginService.navigate(loginService.Route.Display_Recipe)">Display Your Recipe</button>
+
+    <button mat-raised-button type="submit" color="primary"
+    (click)="loginService.navigate(loginService.Route.Insert_Recipe)">Insert New Recipe</button>
+
+    <!-- <button mat-raised-button type="submit" color="primary"
+    (click)="loginService.navigate(loginService.Route.Insert_Ingredient)">Insert New Ingredient</button> -->
+
+    <button mat-raised-button type="submit" color="primary"
+    (click)="loginService.navigate(loginService.Route.PantryItem)">Display PantryItem</button>
+
+    <button mat-raised-button type="submit" color="primary"
+    (click)="loginService.navigate(loginService.Route.DisplayItems)">Display Item</button>
+
+</div>
+
+

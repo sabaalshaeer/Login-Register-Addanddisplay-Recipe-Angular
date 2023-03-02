@@ -1,0 +1,88 @@
+
+<div>
+
+  <button type="submit" style="background-color: blue; color: white; padding: 10px; border: none; border-radius: 5px;" (click)="loginService.navigate(loginService.Route.User_Home)">
+    User Main Page
+  </button>
+
+  <div class="container">
+    <h2 style="margin-left: 400px;">List of Recipes</h2>
+
+    <ng-container *ngIf="recipes.length !== 0">
+      <div class="table">
+        <div *ngFor="let recipe of recipes">
+          <div style="border: 1px solid black; border-radius: 5px; padding: 10px; margin: 10px;">
+            <h3>{{ recipe.name }}</h3>
+            <img height="100" width="100" src="{{ recipe.url }}">
+            <h3>Ingredients:</h3>
+            <ul>
+              <li *ngFor="let ingredient of recipe.ingredient">
+                {{ ingredient.ingredientName }} - {{ ingredient.weight }}lb ({{ ingredient.calories }}cal)
+              </li>
+            </ul>
+            <h3>Steps:</h3>
+            <ul>
+              <li *ngFor="let step of recipe.step">
+                {{ step.comment }}
+              </li>
+            </ul>
+            <p>Total Calories: {{ getTotalCaloriesinEachRecipe(recipe) }}</p>
+            <p>Total Weight: {{ getTotalWeightinEachRecipe(recipe) }}</p>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="recipes.length === 0">
+      <div class="container">
+        <h3>There are no items</h3>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<!-- <div>
+  <h2 style="margin-left: 400px;">List of Items</h2>
+
+  <button mat-raised-button type="submit" color="primary" (click)="loginService.navigate(loginService.Route.User_Home)">
+    User Main Page
+  </button>
+
+  <div class="container">
+    <ng-container *ngIf="recipes.length !== 0">
+      <div>{{ recipes | json }}</div>
+
+      <h2 style="text-align: center;">List of Recipes</h2>
+      <div class="table">
+        <mat-card *ngFor="let recipe of recipes">
+          <mat-card-header>
+            <mat-card-title>{{ recipe.name }}</mat-card-title>
+            <mat-card-subtitle><img height="100" width="100" src="{{ recipe.url }}"></mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <h3>Ingredients:</h3>
+            <ul>
+              <li *ngFor="let ingredient of recipe.ingredient">
+                {{ ingredient.ingredientName }} - {{ ingredient.weight }}lb ({{ ingredient.calories }}cal)
+              </li>
+            </ul>
+            <h3>Steps:</h3>
+            <ul>
+              <li *ngFor="let step of recipe.step">
+                {{ step.comment }}
+              </li>
+            </ul>
+            <p>Total Calories: {{ getTotalCaloriesinEachRecipe(recipe) }}</p>
+            <p>Total Weight: {{ getTotalWeightinEachRecipe(recipe) }}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="recipes.length === 0">
+      <div class="container">
+        <h3>There are no items</h3>
+      </div>
+    </ng-container>
+  </div>
+</div> --> 
